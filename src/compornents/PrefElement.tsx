@@ -1,7 +1,10 @@
+import "./PrefElement.css";
 
 type Props = {
     prefChange: (pref: string) => void
+    pageChange: (page: number) => void
     pref: string
+    page: number
 }
 export default function PrefElement(props: Props) {
     const prefs = [
@@ -53,7 +56,8 @@ export default function PrefElement(props: Props) {
         ["Kagoshima", "鹿児島県"],
         ["Okinawa", "沖縄県"],
     ]
-    return (<form>
+    return (<form className="form" >
+
         <label>
             都道府県:
             <select name="pref"
@@ -69,5 +73,10 @@ export default function PrefElement(props: Props) {
                 }
             </select>
         </label>
-    </form>)
+        <label>
+            ページ:
+            <input type="number" min="1" step="1" value={props.page}
+                onChange={(e) => { props.pageChange(parseInt(e.target.value)) }}></input>
+        </label>
+    </form >)
 }

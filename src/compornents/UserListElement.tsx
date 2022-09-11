@@ -8,8 +8,8 @@ export default function UserListElement(props: Props) {
     return (
         <div>
             {
-                props.users.map((u, i) => {
-                    return <div key={i}>
+                props.users.map((u) => {
+                    return <div key={u.login} className="user">
                         <img src={u.avatar_url} className="icon" />
                         <a href={`https://github.com/${u.login}`}>{u.login}</a>
                         <div><img src={`https://img.shields.io/github/stars/${u.login}?style=social`} /></div>
