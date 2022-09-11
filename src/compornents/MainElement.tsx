@@ -24,7 +24,10 @@ export default function MainElement() {
             <div className='sticky'>
                 <h1>地元のGithubユーザー</h1>
                 <PrefElement
-                    prefChange={(pref: string) => { setPref(pref) }}
+                    prefChange={(pref: string) => {
+                        setPref(pref)
+                        setPage(1)
+                    }}
                     pageChange={(page: number) => { setPage(page) }}
                     pref={pref}
                     page={page}
