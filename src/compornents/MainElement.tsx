@@ -36,6 +36,7 @@ export default function MainElement() {
             </div>
             <UserListElement
                 users={users}
+                page={page}
             ></UserListElement>
         </div>
     )

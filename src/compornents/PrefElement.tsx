@@ -73,10 +73,31 @@ export default function PrefElement(props: Props) {
                 }
             </select>
         </label>
-        <label>
-            ページ:
+        <div>
+            <button
+                onClick={
+                    (e) => {
+                        if (props.page > 1) {
+                            console.log(props.page)
+                            props.pageChange(props.page - 1)
+                        }
+                        e.preventDefault()
+                    }
+                }
+            >←</button>
             <input type="number" min="1" step="1" value={props.page}
+                className="page"
                 onChange={(e) => { props.pageChange(parseInt(e.target.value)) }}></input>
-        </label>
+            <button
+                onClick={
+                    (e) => {
+                        console.log(props.page)
+                        props.pageChange(props.page + 1)
+                        e.preventDefault()
+                    }
+                }
+            >→</button>
+
+        </div>
     </form >)
 }
