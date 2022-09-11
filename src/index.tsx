@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client'
+import MainElement from './compornents/MainElement'
 import './index.css'
 
 const root = ReactDOM.createRoot(
@@ -6,7 +7,5 @@ const root = ReactDOM.createRoot(
 )
 
 root.render(<div className='container'>
-    <div className='outbox'>
-        hello
-    </div>
+    <MainElement></MainElement>
 </div>)
