@@ -11,7 +11,9 @@ export default function MainElement() {
     const [users, setUsers] = React.useState<User[]>([])
     useEffect(() => {
         const f = async () => {
-            const octokit = new Octokit({})
+            const octokit = new Octokit({
+                //auth: `personal-access-token123`
+            })
             const res = await octokit.request('GET /search/users', { q: `location:${pref}`, per_page: 20, page: page })
             setCount(res.data.total_count)
             setUsers(res.data.items)
