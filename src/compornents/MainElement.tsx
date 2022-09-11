@@ -10,7 +10,7 @@ export default function MainElement() {
     useEffect(() => {
         const f = async () => {
             const octokit = new Octokit({})
-            const res = await octokit.request('GET /search/users', { q: `location:${pref}`, per_page: 100 })
+            const res = await octokit.request('GET /search/users', { q: `location:${pref}`, per_page: 20 })
             setCount(res.data.total_count)
             setUsers(res.data.items)
         };
