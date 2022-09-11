@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { User } from "../models/user"
+import UserElement from "./UserElement"
 import "./UserListElement.css"
 
 type Props = {
@@ -17,13 +18,7 @@ export default function UserListElement(props: Props) {
         <div>
             {
                 props.users.map((u) => {
-                    return <div key={u.login} className="user">
-                        <img src={u.avatar_url} className="icon" />
-                        <a href={`https://github.com/${u.login}`}>{u.login}</a>
-                        <div><img src={`https://img.shields.io/github/stars/${u.login}?style=social`} /></div>
-                        <div><img src={`https://img.shields.io/github/followers/${u.login}?style=social`} /></div>
-                        <div><img src={`https://img.shields.io/twitter/follow/${u.login}?style=social`} /></div>
-                    </div>;
+                    return <UserElement user={u} key={u.login}></UserElement>;
                 })
             }
         </div>)
