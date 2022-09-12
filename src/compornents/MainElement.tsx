@@ -27,14 +27,10 @@ export default function MainElement() {
             if (!pref) {
                 return;
             }
-            try {
-                const res = await fetch(`https://githubuser-5dyx7gwrfq-de.a.run.app/?pref=${pref}&page=${page}`);
-                const json = await res.json();
-                setCount(json.data.total_count)
-                setUsers(json.data.items)
-            } catch (error) {
-                alert("レートリミットに引っかかったかも。時間を置いて試してみてください。(同一IPから1分間に10回まで)")
-            }
+            const res = await fetch(`https://githubuser-5dyx7gwrfq-de.a.run.app/?pref=${pref}&page=${page}`);
+            const json = await res.json();
+            setCount(json.data.total_count)
+            setUsers(json.data.items)
         };
         f();
     }, [pref, page])
@@ -45,7 +41,7 @@ export default function MainElement() {
                 <h1>地元のGitHubユーザー</h1>
                 <PrefElement
                     prefChange={(pref: string) => {
-                        navigate(`/${pref}/${page}`)
+                        navigate(`/${pref}/${1}`)
                     }}
                     pageChange={(page: number) => {
                         navigate(`/${pref}/${page}`)
