@@ -47,7 +47,7 @@ export default function MainElement() {
     return (
         <div>
             <div className='sticky'>
-                <h1>地元のGithubユーザー</h1>
+                <h1>地元のGitHubユーザー</h1>
                 <PrefElement
                     prefChange={(pref: string) => {
                         navigate(`/${pref}/${page}`)
