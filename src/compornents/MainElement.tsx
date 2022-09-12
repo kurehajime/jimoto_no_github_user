@@ -1,5 +1,4 @@
 import PrefElement from './PrefElement'
-import { Octokit } from "@octokit/core";
 import React, { useEffect } from 'react';
 import { User } from '../models/user';
 import UserListElement from './UserListElement';
@@ -28,17 +27,13 @@ export default function MainElement() {
             if (!pref) {
                 return;
             }
-            // パーソナルアクセストークンを設定すればレートリミットが緩和される。
-            const octokit = new Octokit({
-                //auth: `personal-access-token123`
-            })
             try {
-                const res = await octokit.request('GET /search/users', { q: `location:${pref}`, per_page: 20, page: page })
-                setCount(res.data.total_count)
-                setUsers(res.data.items)
+                const res = await fetch(`https://githubuser-5dyx7gwrfq-de.a.run.app/?pref=${pref}&page=${page}`);
+                const json = await res.json();
+                setCount(json.data.total_count)
+                setUsers(json.data.items)
             } catch (error) {
                 alert("レートリミットに引っかかったかも。時間を置いて試してみてください。(同一IPから1分間に10回まで)")
-
             }
         };
         f();

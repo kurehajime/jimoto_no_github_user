@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@google-cloud/functions-framework": "^2.1.0",
+    "@octokit/core": "4.0.5"
+  }
+}
