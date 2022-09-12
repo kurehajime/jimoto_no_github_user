@@ -8,6 +8,7 @@ type Props = {
 }
 export default function PrefElement(props: Props) {
     const prefs = [
+        ["Japan", "日本"],
         ["Hokkaido", "北海道"],
         ["Aomori", "青森県"],
         ["Iwate", "岩手県"],
