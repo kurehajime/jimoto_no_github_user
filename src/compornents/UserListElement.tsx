@@ -11,7 +11,6 @@ type Props = {
 export default function UserListElement(props: Props) {
 
     useEffect(() => {
-        console.log("UserListElement")
         window.scroll({ top: 0, behavior: 'auto' });
     }, [props.users, props.page])
 
