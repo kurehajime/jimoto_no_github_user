@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import UserListElement from './UserListElement';
 import "./MainElement.css";
 import { useParams, useNavigate } from 'react-router-dom';
+import PageNationElement from './PageNationElement';
 
 export default function MainElement() {
     const params = useParams();
@@ -37,24 +38,26 @@ export default function MainElement() {
 
     return (
         <div>
-            <div className='sticky'>
-                <h1>地元のGitHubユーザー</h1>
+            <div className='sticky z-50 bg-white/90 w-full'>
+                <h1 className='text-5xl font-black text-center'>地元のGitHubユーザー</h1>
                 <PrefElement
                     prefChange={(pref: string) => {
                         navigate(`/${pref}/${1}`)
                     }}
-                    pageChange={(page: number) => {
-                        navigate(`/${pref}/${page}`)
-                    }}
+                    count={count}
                     pref={pref ?? ""}
-                    page={page}
                 ></PrefElement>
-                <div>{count}件</div>
             </div>
             <UserListElement
                 users={users}
                 page={page}
             ></UserListElement>
+            <PageNationElement
+                pageChange={(page: number) => {
+                    navigate(`/${pref}/${page}`)
+                }}
+                page={page}
+            ></PageNationElement>
         </div>
     )
 }

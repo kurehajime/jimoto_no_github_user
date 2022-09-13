@@ -2,9 +2,8 @@ import "./PrefElement.css";
 
 type Props = {
     prefChange: (pref: string) => void
-    pageChange: (page: number) => void
     pref: string
-    page: number
+    count: number
 }
 export default function PrefElement(props: Props) {
     const prefs = [
@@ -60,45 +59,21 @@ export default function PrefElement(props: Props) {
     return (<form className="form" >
 
         <label>
-            都道府県:
-            <select name="pref"
-                value={props.pref}
-                onChange={(e) => { props.prefChange(e.target.value) }}>
-                {
-                    prefs.map((p, i) => {
-                        return (
-                            <option value={p[0]}
-                                key={i}
-                            >{p[1]}</option>)
-                    })
-                }
-            </select>
+            <div className="flex flex-row pb-1 pt-3">
+                <select name="pref select border border-gray-300"
+                    value={props.pref}
+                    onChange={(e) => { props.prefChange(e.target.value) }}>
+                    {
+                        prefs.map((p, i) => {
+                            return (
+                                <option value={p[0]}
+                                    key={i}
+                                >{p[1]}</option>)
+                        })
+                    }
+                </select>
+                <div className="pl-5">{props.count}件</div>
+            </div>
         </label>
-        <div>
-            <button
-                onClick={
-                    (e) => {
-                        if (props.page > 1) {
-                            console.log(props.page)
-                            props.pageChange(props.page - 1)
-                        }
-                        e.preventDefault()
-                    }
-                }
-            >←</button>
-            <input type="number" min="1" step="1" value={props.page}
-                className="page"
-                onChange={(e) => { props.pageChange(parseInt(e.target.value)) }}></input>
-            <button
-                onClick={
-                    (e) => {
-                        console.log(props.page)
-                        props.pageChange(props.page + 1)
-                        e.preventDefault()
-                    }
-                }
-            >→</button>
-
-        </div>
     </form >)
 }

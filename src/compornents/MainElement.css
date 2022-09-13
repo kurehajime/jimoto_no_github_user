@@ -1,5 +1,8 @@
 .sticky {
     position: sticky;
     top: 0;
-    background-color: white;
+}
+
+h1 {
+    font-family: Hiragino Sans, sans-serif;
 }
