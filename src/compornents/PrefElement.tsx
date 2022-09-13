@@ -72,7 +72,7 @@ export default function PrefElement(props: Props) {
                         })
                     }
                 </select>
-                <div className="pl-5 form-input">{props.count}件</div>
+                <div className="pl-5 form-input">{props.count}人</div>
 
             </div>
         </label>

@@ -15,7 +15,7 @@ export default function UserListElement(props: Props) {
     }, [props.users, props.page])
 
     return (
-        <div>
+        <div className="pl-2 pr-2">
             {
                 props.users.map((u) => {
                     return <UserElement user={u} key={u.login}></UserElement>;

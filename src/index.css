@@ -2,6 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
-    margin-left: 10px;
-}
+.container {}

@@ -37,17 +37,17 @@ export default function MainElement() {
     }, [pref, page])
 
     return (
-        <div>
-            <div className='sticky z-50 bg-white/90 w-full'>
-                <h1 className='text-5xl font-black text-center pt-5'>地元のGitHubユーザー</h1>
+        <div className='pl-5 '>
+            <div className='sticky z-50 w-full bg-gray-800/80 backdrop-blur-sm'>
+                <h1 className='text-5xl font-black text-center pt-5 text-white'>地元のGitHubユーザー</h1>
                 <PrefElement
                     prefChange={(pref: string) => {
                         navigate(`/${pref}/${1}`)
                     }}
                     count={count}
                     pref={pref ?? ""}
-                ></PrefElement>
-            </div>
+                ></PrefElement >
+            </div >
             <UserListElement
                 users={users}
                 page={page}
@@ -58,6 +58,6 @@ export default function MainElement() {
                 }}
                 page={page}
             ></PageNationElement>
-        </div>
+        </div >
     )
 }
