@@ -8,15 +8,19 @@ type Props = {
 export default function UserListElement(props: Props) {
     const [grass, setGrass] = React.useState(false);
     return (
-        <div key={props.user.login} className="rounded-lg backdrop-blur bg-gradient-to-r from-cyan-100 to-blue-100 pl-3 mt-3" >
+        <div key={props.user.login} className="rounded-lg backdrop-blur bg-gradient-to-r from-cyan-100 to-blue-100 pl-3 mt-3 border border-cyan-300" >
             <div className="flex flex-row pb-1  pt-3">
-                <img src={props.user.avatar_url} className="icon " />
-                <h2 className="text-2xl font-black basis-3/4"><a href={`https://github.com/${props.user.login}`}>{props.user.login}</a></h2>
+                <a href={`https://github.com/${props.user.login}`}><img src={props.user.avatar_url} className="icon " /></a>
+                <h2 className="text-4xl font-black basis-3/4"><a href={`https://github.com/${props.user.login}`}>{props.user.login}</a></h2>
             </div>
             <div className="flex flex-row pb-1">
-                <div className=" pr-4"><img src={`https://img.shields.io/github/stars/${props.user.login}?style=social`} /></div>
-                <div className=" pr-4"><img src={`https://img.shields.io/github/followers/${props.user.login}?style=social`} /></div>
-                <div className=" pr-4"><img src={`https://img.shields.io/twitter/follow/${props.user.login}?style=social`} /></div>
+                <div className=" pr-4"><img src={`https://img.shields.io/github/stars/${props.user.login}?color=yellow&label=Github%20Stars&style=for-the-badge`} /></div>
+                <div className=" pr-4"><img src={`https://img.shields.io/github/followers/${props.user.login}?color=green&label=Github%20Folloewers&style=for-the-badge`} /></div>
+                <div className=" pr-4">
+                    <a href={`http://twitter.com/${props.user.login}`}>
+                        <img src={`https://img.shields.io/twitter/follow/${props.user.login}?color=00acee&label=Twitter%20Folloewers&style=for-the-badge`} />
+                    </a>
+                </div>
             </div>
             <details className=" pb-3" onToggle={
                 (e) => {
