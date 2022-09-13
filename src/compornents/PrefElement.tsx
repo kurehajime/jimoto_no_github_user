@@ -60,7 +60,7 @@ export default function PrefElement(props: Props) {
 
         <label>
             <div className="flex flex-row pb-1 pt-3">
-                <select name="pref select border border-gray-300"
+                <select name="pref select border border-gray-300 form-input"
                     value={props.pref}
                     onChange={(e) => { props.prefChange(e.target.value) }}>
                     {
@@ -72,7 +72,8 @@ export default function PrefElement(props: Props) {
                         })
                     }
                 </select>
-                <div className="pl-5">{props.count}件</div>
+                <div className="pl-5 form-input">{props.count}件</div>
+
             </div>
         </label>
     </form >)

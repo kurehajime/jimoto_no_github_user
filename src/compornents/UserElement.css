@@ -9,3 +9,7 @@
     background-color: whitesmoke;
     margin: 10px;
 }
+
+.activity {
+    min-height: 155;
+}

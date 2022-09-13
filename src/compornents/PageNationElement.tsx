@@ -18,7 +18,7 @@ export default function PageNationElement(props: Props) {
                 }
             >←</button>
             <input type="number" min="1" step="1" value={props.page} readOnly
-                className="page rounded-full bg-blue-500 text-white px-4 py-2 m-2"
+                className="page rounded-full bg-blue-100 text-black px-4 py-2 m-2"
                 onChange={(e) => { props.pageChange(parseInt(e.target.value)) }}></input>
             <button className="rounded-full bg-blue-500 text-white px-4 py-2 m-2"
                 onClick={

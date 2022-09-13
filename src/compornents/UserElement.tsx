@@ -1,4 +1,3 @@
-import { url } from "inspector"
 import React from "react"
 import { User } from "../models/user"
 import "./UserElement.css"
@@ -26,9 +25,9 @@ export default function UserListElement(props: Props) {
                     }
                 }
             }>
-                <summary>最近の活動</summary>
+                <summary className="">最近の活動</summary>
                 {
-                    grass ? <img src={`https://grass-graph.appspot.com/images/${props.user.login}.png`} /> : <div>loading...</div>
+                    grass ? <div className="activity" ><img src={`https://grass-graph.appspot.com/images/${props.user.login}.png`} alt="Loading..." /></div> : <div>loading...</div>
                 }
             </details>
         </div>)
