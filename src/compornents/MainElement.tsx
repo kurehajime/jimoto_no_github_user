@@ -39,7 +39,7 @@ export default function MainElement() {
     return (
         <div className='pl-5  pr-2'>
             <div className='sticky z-50 w-full bg-gray-800/80 backdrop-blur-sm'>
-                <h1 className='text-3xl lg:text-5xl md:text-m font-black text-center pt-5 text-white'>🗾 地元のGitHubユーザー</h1>
+                <h1 className='text-2xl lg:text-5xl font-black text-center pt-5 text-white'>🗾 地元のGitHubユーザー</h1>
                 <PrefElement
                     prefChange={(pref: string) => {
                         navigate(`/${pref}/${1}`)
