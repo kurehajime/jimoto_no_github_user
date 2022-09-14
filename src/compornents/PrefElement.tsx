@@ -56,10 +56,18 @@ export default function PrefElement(props: Props) {
         ["Kagoshima", "鹿児島県"],
         ["Okinawa", "沖縄県"],
     ]
-    return (<form className="form" >
+    const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const now = new Date();
+        const y = (now.getFullYear()).toString().padStart(4, "0");
+        const m = (now.getMonth() + 1).toString().padStart(2, "0");
+        const d = (now.getDate()).toString().padStart(2, "0");
+        window.open(`https://connpass.com/search/?q=&start_from=${y}%2F${m}%2F${d}&start_to=&prefectures=${props.pref.toLowerCase()}`, '_blank');
+        e.preventDefault();
+    }
 
-        <label>
-            <div className="flex flex-row pb-1 pt-3">
+    return (<form className="form" >
+        <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-row pb-1 pt-3 content-start">
                 <select name="pref select border border-gray-300 form-input"
                     value={props.pref}
                     onChange={(e) => { props.prefChange(e.target.value) }}>
@@ -73,8 +81,12 @@ export default function PrefElement(props: Props) {
                     }
                 </select>
                 <div className="pl-5 form-input">{props.count}人</div>
-
             </div>
-        </label>
+            <div className="flex flex-row pb-1 pt-3 content-end justify-end	">
+                <button className="bg-white w-48 border-solid border-2 border-gray-300 rounded-md hover:bg-gray-200"
+                    onClick={onClick}
+                >{prefs.filter(p => { return p[0] === props.pref }).map(p => p[1])[0]}の勉強会</button>
+            </div>
+        </div>
     </form >)
 }
