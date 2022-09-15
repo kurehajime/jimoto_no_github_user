@@ -5,6 +5,12 @@
 .container {}
 
 body {
-    background: rgb(234, 238, 174);
     background: radial-gradient(circle, rgba(234, 238, 174, 1) 0%, rgba(148, 233, 174, 1) 100%);
+
+    background: rgb(234, 238, 174) url("./map.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right 35% top 35%;
+    backdrop-filter: blur(0px);
 }
