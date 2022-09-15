@@ -83,7 +83,7 @@ export default function PrefElement(props: Props) {
                 <div className="pl-5 form-input">{props.count}人</div>
             </div>
             <div className="flex flex-row pb-1 pt-3 content-end justify-end	">
-                <button className="bg-white w-48 border-solid border-2 border-gray-300 hover:bg-gray-200"
+                <button className="bg-white w-48 border-solid border-2 border-gray-300 hover:bg-gray-200 hutoji"
                     onClick={onClick}
                 >👥 {prefs.filter(p => { return p[0] === props.pref }).map(p => p[1])[0]}の勉強会</button>
             </div>

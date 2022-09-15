@@ -29,7 +29,7 @@ export default function UserListElement(props: Props) {
                     }
                 }
             }>
-                <summary className="">最近の活動</summary>
+                <summary className="hutoji">最近の活動</summary>
                 {
                     grass ? <div className="activity" ><img src={`https://grass-graph.appspot.com/images/${props.user.login}.png`} alt="Loading..." /></div> : <div>loading...</div>
                 }

@@ -14,3 +14,18 @@ body {
     background-position: right 35% top 35%;
     backdrop-filter: blur(0px);
 }
+
+@font-face {
+    font-family: 'MPLUS1-Black';
+    font-style: normal;
+    src: local('MPLUS1-Black'), url(./src/MPLUS1-Black.ttf) format('truetype');
+}
+
+h1 {
+    font-family: 'MPLUS1-Black', Hiragino Sans, sans-serif;
+    text-shadow: #FFFFFF 0px 0px 5px;
+}
+
+.hutoji {
+    font-family: 'MPLUS1-Black', Hiragino Sans, sans-serif;
+}
