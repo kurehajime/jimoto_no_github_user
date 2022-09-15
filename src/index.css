@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 .container {}
+
+body {
+    background: rgb(234, 238, 174);
+    background: radial-gradient(circle, rgba(234, 238, 174, 1) 0%, rgba(148, 233, 174, 1) 100%);
+}

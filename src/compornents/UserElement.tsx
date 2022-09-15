@@ -8,7 +8,7 @@ type Props = {
 export default function UserListElement(props: Props) {
     const [grass, setGrass] = React.useState(false);
     return (
-        <div key={props.user.login} className="rounded-lg backdrop-blur bg-gradient-to-r from-cyan-100 to-blue-100 pl-3 mt-3 border border-cyan-300" >
+        <div key={props.user.login} className="rounded-lg backdrop-blur bg-gradient-to-r from-gray-50 to-gray-50 pl-3 mt-3 border border-green-500" >
             <div className="flex flex-row pb-1  pt-3">
                 <a href={`https://github.com/${props.user.login}`}><img src={props.user.avatar_url} className="icon " /></a>
                 <h2 className="text-4xl font-black basis-3/4"><a href={`https://github.com/${props.user.login}`}>{props.user.login}</a></h2>
