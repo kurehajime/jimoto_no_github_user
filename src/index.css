@@ -18,7 +18,7 @@ body {
 @font-face {
     font-family: 'MPLUS1-Black';
     font-style: normal;
-    src: local('MPLUS1-Black'), url(./src/MPLUS1-Black.ttf) format('truetype');
+    src: local('MPLUS1-Black'), url(./MPLUS1-Black.ttf) format('truetype');
 }
 
 h1 {
