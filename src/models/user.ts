@@ -1,5 +1,8 @@
 export type User = {
     login: string;
-    avatar_url: string;
-    score: number;
+    avatarUrl: string;
+    company: string;
+    twitterUsername: string;
+    websiteUrl: string;
+    bio: string;
 }

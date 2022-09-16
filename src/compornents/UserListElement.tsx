@@ -6,13 +6,12 @@ import "./UserListElement.css"
 
 type Props = {
     users: User[]
-    page: number
 }
 export default function UserListElement(props: Props) {
 
     useEffect(() => {
         window.scroll({ top: 0, behavior: 'auto' });
-    }, [props.users, props.page])
+    }, [props.users])
 
     return (
         <div className="pl-2 pr-2">
