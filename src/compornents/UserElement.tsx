@@ -25,7 +25,7 @@ export default function UserListElement(props: Props) {
                     }
                 </div>
             </div>
-            <div className="flex flex-row pb-1 text-blue-500 break-words">
+            <div className="flex flex-row pb-1 text-blue-500 break-all">
                 <a href={props.user.websiteUrl}>{props.user.websiteUrl}</a>
             </div>
             <div className="flex flex-row pb-1 hutoji break-words">
