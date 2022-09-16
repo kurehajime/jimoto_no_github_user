@@ -5,6 +5,7 @@ import UserListElement from './UserListElement';
 import "./MainElement.css";
 import { useParams, useNavigate } from 'react-router-dom';
 import PageNationElement from './PageNationElement';
+import FooterElement from './FooterElement';
 
 export default function MainElement() {
     const params = useParams();
@@ -58,6 +59,9 @@ export default function MainElement() {
                 }}
                 page={page}
             ></PageNationElement>
+            <FooterElement
+                pref={pref ?? ""}
+            ></FooterElement>
         </div >
     )
 }
