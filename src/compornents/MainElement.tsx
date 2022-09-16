@@ -46,32 +46,34 @@ export default function MainElement() {
     }, [pref, cursor])
 
     return (
-        <div className='pl-5  pr-2'>
-            <div className='sticky z-50 w-full bg-white-900/80 backdrop-blur-sm'>
-                <h1 className='text-2xl lg:text-5xl font-black text-center pt-5 text-black'>🗾 地元のGitHubユーザー</h1>
-                <PrefElement
-                    prefChange={(pref: string) => {
-                        navigate(`/${pref}`)
+        <div className='flex justify-center'>
+            <div>
+                <div className='sticky z-50 w-full bg-white-900/80 backdrop-blur-sm'>
+                    <h1 className='text-2xl lg:text-5xl font-black text-center pt-5 text-black'>🗾 地元のGitHubユーザー</h1>
+                    <PrefElement
+                        prefChange={(pref: string) => {
+                            navigate(`/${pref}`)
+                        }}
+                        count={count}
+                        pref={pref ?? ""}
+                    ></PrefElement >
+                </div >
+                <UserListElement
+                    users={users}
+                ></UserListElement>
+                <PageNationElement
+                    cursorChange={(next: boolean) => {
+                        if (next) {
+                            navigate(`/${pref}/${end}`)
+                        } else {
+                            history.back()
+                        }
                     }}
-                    count={count}
+                ></PageNationElement>
+                <FooterElement
                     pref={pref ?? ""}
-                ></PrefElement >
-            </div >
-            <UserListElement
-                users={users}
-            ></UserListElement>
-            <PageNationElement
-                cursorChange={(next: boolean) => {
-                    if (next) {
-                        navigate(`/${pref}/${end}`)
-                    } else {
-                        history.back()
-                    }
-                }}
-            ></PageNationElement>
-            <FooterElement
-                pref={pref ?? ""}
-            ></FooterElement>
+                ></FooterElement>
+            </div>
         </div >
     )
 }
