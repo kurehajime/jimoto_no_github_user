@@ -65,8 +65,11 @@ export default function MainElement() {
             ></UserListElement>
             <PageNationElement
                 cursorChange={(next: boolean) => {
-                    const c = next ? end : start
-                    navigate(`/${pref}/${c}`)
+                    if (next) {
+                        navigate(`/${pref}/${end}`)
+                    } else {
+                        history.back()
+                    }
                 }}
             ></PageNationElement>
             <FooterElement
