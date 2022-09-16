@@ -1,7 +1,11 @@
 const functions = require('@google-cloud/functions-framework');
 
 functions.http('githubUsers', async (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
+  const allowedOrigins = ['http://127.0.0.1:5173', 'https://kurehajime.github.io'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
 
   if (req.method === 'OPTIONS') {
     // Send response to OPTIONS requests
