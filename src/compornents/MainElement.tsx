@@ -34,7 +34,6 @@ export default function MainElement() {
             if (!pref) {
                 return;
             }
-            console.log(`https://githubusers-5dyx7gwrfq-de.a.run.app/?pref=${pref}&cursor=${cursor}`)
             const res = cursor ? await fetch(`https://githubusers-5dyx7gwrfq-de.a.run.app/?pref=${pref}&cursor=${cursor}`)
                 : await fetch(`https://githubusers-5dyx7gwrfq-de.a.run.app/?pref=${pref}`);
             const json = await res.json();
@@ -42,8 +41,6 @@ export default function MainElement() {
             setStart(json.data.search.pageInfo.startCursor)
             setEnd(json.data.search.pageInfo.endCursor)
             setUsers(json.data.search.edges.map((e: any) => e.node))
-            console.log(json.data.search.edges.
-                map((e: any) => e.node))
         };
         f();
     }, [pref, cursor])
