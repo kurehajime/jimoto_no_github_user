@@ -46,13 +46,11 @@ functions.http('githubUsers', async (req, res) => {
       cache: new InMemoryCache(),
     });
     async function search() {
-      console.log("q:")
-      console.log(req.query)
       const searchResult = await apolloClient
         .query({
           query: searchQuery, variables: {
-            location: `location:${req.query.pref} type:user`,
-            cursor: req.query.cursor === "" ? null : req.query.cursor
+            location: `location:${req.query.pref} type:user ${req.query.sort ? 'sort:' + req.query.sort : ""}`,
+            cursor: req.query.cursor === "" ? null : req.query.cursor,
           }
         })
         .then((result) => {
