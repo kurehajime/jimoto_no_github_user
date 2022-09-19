@@ -55,7 +55,7 @@ export default function MainElement() {
         <div className='flex justify-center'>
             <div>
                 <div className='sticky z-50 w-full bg-white-900/80 backdrop-blur-sm'>
-                    <h1 className='text-2xl lg:text-5xl font-black text-center pt-5 text-black'>🗾 地元のGitHubユーザー</h1>
+                    <a href="https://kurehajime.github.io/jimoto_no_github_user"><h1 className='text-2xl lg:text-5xl font-black text-center pt-5 text-black'>🗾 地元のGitHubユーザー</h1></a>
                     <PrefElement
                         prefChange={(pref: string) => {
                             navigate(`/${params.sort ?? "of"}/${pref}`)
