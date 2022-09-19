@@ -13,10 +13,10 @@ root.render(<div className='container'>
             <Route path="/" element={
                 <MainElement></MainElement>
             } />
-            <Route path="/:pref" element={
+            <Route path="/:sort/:pref" element={
                 <MainElement></MainElement>
             } />
-            <Route path="/:pref/:cursor" element={
+            <Route path="/:sort/:pref/:cursor" element={
                 <MainElement></MainElement>
             } />
         </Routes>

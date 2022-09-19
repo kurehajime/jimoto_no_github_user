@@ -2,8 +2,10 @@ import "./PrefElement.css";
 
 type Props = {
     prefChange: (pref: string) => void
+    sortChange: (sort: string) => void
     pref: string
     count: number
+    sort: string
 }
 export default function PrefElement(props: Props) {
     const prefs = [
@@ -56,6 +58,13 @@ export default function PrefElement(props: Props) {
         ["Kagoshima", "鹿児島県"],
         ["Okinawa", "沖縄県"],
     ]
+    const sorts = [
+        ["of", "おすすめ順"],
+        ["repositories", "リポジトリ数順"],
+        ["followers", "フォロワー数順"],
+        ["joined", "新着順"],
+        ["joined-asc", "古株順"],
+    ]
     const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         const now = new Date();
         const y = (now.getFullYear()).toString().padStart(4, "0");
@@ -64,23 +73,36 @@ export default function PrefElement(props: Props) {
         window.open(`https://connpass.com/search/?q=&start_from=${y}%2F${m}%2F${d}&start_to=&prefectures=${props.pref.toLowerCase()}`, '_blank');
         e.preventDefault();
     }
-
     return (<form className="form" >
         <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-row pb-1 pt-3 content-start">
-                <select name="pref select border border-gray-300 form-input"
-                    value={props.pref}
-                    onChange={(e) => { props.prefChange(e.target.value) }}>
-                    {
-                        prefs.map((p, i) => {
-                            return (
-                                <option value={p[0]}
-                                    key={i}
-                                >{p[1]}</option>)
-                        })
-                    }
-                </select>
-                <div className="pl-5 form-input">{props.count}人</div>
+                <div className="flex flex-row">
+                    <select name="pref select border border-gray-300 form-input"
+                        value={props.pref}
+                        onChange={(e) => { props.prefChange(e.target.value) }}>
+                        {
+                            prefs.map((p, i) => {
+                                return (
+                                    <option value={p[0]}
+                                        key={i}
+                                    >{p[1]}</option>)
+                            })
+                        }
+                    </select>
+                    <select name="pref select border border-gray-300 form-input"
+                        value={props.sort}
+                        onChange={(e) => { props.sortChange(e.target.value) }}>
+                        {
+                            sorts.map((p, i) => {
+                                return (
+                                    <option value={p[0]}
+                                        key={i}
+                                    >{p[1]}</option>)
+                            })
+                        }
+                    </select>
+                    <div className="pl-5 form-input">{props.count}人</div>
+                </div>
             </div>
             <div className="flex flex-row pb-1 pt-3 content-end justify-end	">
                 <button className="bg-white w-48 border-solid border-2 border-gray-300 hover:bg-gray-200 hutoji"
