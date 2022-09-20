@@ -11,7 +11,7 @@ export default defineConfig({
         outDir: './docs'
     },
     assetsInclude: ['**/*.png'],
-    plugins: [react(), viteSingleFile()],
+    plugins: [react()],
     resolve: {
         alias: {
             'node-fetch': 'isomorphic-fetch',
