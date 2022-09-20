@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { User } from '../models/user';
 import UserListElement from './UserListElement';
 import "./MainElement.css";
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import PageNationElement from './PageNationElement';
 import FooterElement from './FooterElement';
 
@@ -12,7 +12,7 @@ export default function MainElement() {
     const navigate = useNavigate();
     const [count, setCount] = React.useState(0)
     const [cursor, setCursor] = React.useState<string | null>(null);
-    const [start, setStart] = React.useState<string | null>(null);
+    const [, setStart] = React.useState<string | null>(null);
     const [end, setEnd] = React.useState<string | null>(null);
     const [users, setUsers] = React.useState<User[]>([]);
 
@@ -22,7 +22,7 @@ export default function MainElement() {
         } else if (params.pref && params.sort) {
             setCursor(null)
         } else {
-            navigate(`/of/Tokyo`)
+            navigate(`/of/Tokyo`, { replace: true })
         }
     }, [params.pref, params.cursor])
 
@@ -46,6 +46,7 @@ export default function MainElement() {
             setCount(json.data.search.userCount)
             setStart(json.data.search.pageInfo.startCursor)
             setEnd(json.data.search.pageInfo.endCursor)
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             setUsers(json.data.search.edges.map((e: any) => e.node))
         };
         f();
