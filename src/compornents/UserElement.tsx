@@ -15,7 +15,7 @@ export default function UserListElement(props: Props) {
                 <h2 className="text-4xl font-black basis-3/4"><a href={`https://github.com/${props.user.login}`}>{props.user.login}</a></h2>
             </div>
             <div className="flex flex-row pb-1">
-                <div className=" pr-4"><img src={`https://img.shields.io/github/stars/${props.user.login}?color=yellow&label=Github%20Stars&style=for-the-badge`} /></div>
+                <div className=" pr-4"><img src={`https://img.shields.io/github/stars/${props.user.login}?color=orangered&label=Github%20Stars&style=for-the-badge`} /></div>
                 <div className=" pr-4"><img src={`https://img.shields.io/github/followers/${props.user.login}?color=green&label=Github%20Folloewers&style=for-the-badge`} /></div>
                 <div className=" pr-4">
                     {props.user.twitterUsername ?
@@ -29,7 +29,7 @@ export default function UserListElement(props: Props) {
                 <a href={props.user.websiteUrl}>{props.user.websiteUrl}</a>
             </div>
             <div className="flex flex-row pb-1 hutoji break-words">
-                {props.user.company}
+                {props.user.company ? "🏢 " + props.user.company : ""}
             </div>
             <div className="flex flex-row pb-1 break-words">
                 {props.user.bio}
@@ -43,7 +43,7 @@ export default function UserListElement(props: Props) {
             }>
                 <summary className="hutoji">最近の活動</summary>
                 {
-                    grass ? <div className="activity" ><img src={`https://grass-graph.appspot.com/images/${props.user.login}.png`} alt="Loading..." /></div> : <div>loading...</div>
+                    grass ? <div className="activity" ><img src={`https://grass-graph.appspot.com/images/${props.user.login}.png`} alt="" /></div> : <div>loading...</div>
                 }
             </details>
         </div>)
