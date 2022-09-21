@@ -1,6 +1,8 @@
 # 地元のGitHubユーザー
-[![image](https://user-images.githubusercontent.com/4569916/191263662-c5cdb0c4-68d1-4c77-b236-3543c4cafb90.png)](https://kurehajime.github.io/jimoto_no_github_user/
-)
+
+<a href="https://kurehajime.github.io/jimoto_no_github_user/#/of/Kagoshima">
+<img src="https://user-images.githubusercontent.com/4569916/191277728-68395b0b-8af8-448d-ad9d-b7e3f0387ee7.png" width="500px"  />
+</a>
 
 https://kurehajime.github.io/jimoto_no_github_user/
 
