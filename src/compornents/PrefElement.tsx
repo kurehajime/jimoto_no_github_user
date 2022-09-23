@@ -70,7 +70,7 @@ export default function PrefElement(props: Props) {
         const y = (now.getFullYear()).toString().padStart(4, "0");
         const m = (now.getMonth() + 1).toString().padStart(2, "0");
         const d = (now.getDate()).toString().padStart(2, "0");
-        window.open(`https://connpass.com/search/?q=&start_from=${y}%2F${m}%2F${d}&start_to=&prefectures=${props.pref.toLowerCase()}`, '_blank');
+        window.open(`https://connpass.com/search/?q=&start_from=${y}%2F${m}%2F${d}&start_to=&prefectures=${props.pref.toLowerCase().split(",")[0]}`, '_blank');
         e.preventDefault();
     }
     return (<form className="form" >
