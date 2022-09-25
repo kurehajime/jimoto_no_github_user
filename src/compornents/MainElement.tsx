@@ -22,7 +22,7 @@ export default function MainElement() {
         } else if (params.pref && params.sort) {
             setCursor(null)
         } else {
-            navigate(`/of/Tokyo`, { replace: true })
+            navigate(`/of/Tokyo,東京`, { replace: true })
         }
     }, [params.pref, params.cursor])
 
