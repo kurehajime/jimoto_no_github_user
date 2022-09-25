@@ -7,3 +7,9 @@
 https://kurehajime.github.io/jimoto_no_github_user/
 
 地元のGithubユーザーを探せます。
+
+## 裏技
+
+URLを書き換えると、選択肢にない地方の表示もできます。
+
+https://kurehajime.github.io/jimoto_no_github_user/#/of/Shibuya
