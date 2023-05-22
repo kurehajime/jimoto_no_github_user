@@ -1,4 +1,5 @@
 {
+  "main": "index.js",
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@google-cloud/functions-framework": "^2.1.0",
