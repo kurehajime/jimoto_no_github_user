@@ -32,7 +32,7 @@ export default function PrefElement(props: Props) {
         ["Nagano,長野", "長野県"],
         ["Gifu,岐阜", "岐阜県"],
         ["Shizuoka,静岡", "静岡県"],
-        ["Aichi,Nagoya,愛知", "愛知県"],
+        ["Aichi,Nagoya,愛知,名古屋", "愛知県"],
         ["Mie,Tsu,三重", "三重県"], // 天津が大量に引っかかるので「津」の漢字表記は泣く泣く除外
         ["Shiga,Otsu,滋賀,大津", "滋賀県"],
         ["Kyoto,京都", "京都府"],
