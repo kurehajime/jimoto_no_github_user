@@ -41,7 +41,7 @@ export default function MainElement() {
             const result = await fetch(`https://githubusers-5dyx7gwrfq-de.a.run.app/?${new URLSearchParams(paramObj).toString()}`);
             const j = await result.json();
             return {
-                count: j.data.count,
+                count: j.data.userCount,
                 start: j.data.search.pageInfo.startCursor,
                 end: j.data.search.pageInfo.endCursor,
                 users: j.data.search.edges.map((e: any) => e.node),
