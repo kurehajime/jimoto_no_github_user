@@ -4,7 +4,7 @@ type Props = {
     prefChange: (pref: string) => void
     sortChange: (sort: string) => void
     pref: string
-    count: number
+    count: number | null
     sort: string
 }
 export default function PrefElement(props: Props) {
@@ -101,7 +101,7 @@ export default function PrefElement(props: Props) {
                             })
                         }
                     </select>
-                    <div className="pl-5 form-input">{props.count}人</div>
+                    <div className="pl-5 form-input">{props.count ?? "-"}人</div>
                 </div>
             </div>
             <div className="flex flex-row pb-1 pt-3 content-end justify-end	">

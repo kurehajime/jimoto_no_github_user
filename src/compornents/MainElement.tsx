@@ -48,7 +48,6 @@ export default function MainElement() {
             }
         }
     });
-    if (isPending || data === undefined) return <div>Loading...</div>;
     return (
         <div className='flex justify-center'>
             <div>
@@ -61,26 +60,30 @@ export default function MainElement() {
                         sortChange={(sort: string) => {
                             navigate(`/${sort ?? "of"}/${params.pref}`)
                         }}
-                        count={data.count}
+                        count={data?.count ?? null}
                         pref={params.pref ?? ""}
                         sort={params.sort ?? "of"}
                     ></PrefElement >
                 </div >
-                <UserListElement
-                    users={data.users}
-                ></UserListElement>
-                <PageNationElement
-                    cursorChange={(next: boolean) => {
-                        if (next) {
-                            navigate(`/${params.sort ?? "of"}/${params.pref}/${data.end}`)
-                        } else {
-                            history.back()
-                        }
-                    }}
-                ></PageNationElement>
-                <FooterElement
-                    pref={params.pref ?? ""}
-                ></FooterElement>
+                {
+                    (!isPending && data) && <>
+                        <UserListElement
+                            users={data.users}
+                        ></UserListElement>
+                        <PageNationElement
+                            cursorChange={(next: boolean) => {
+                                if (next) {
+                                    navigate(`/${params.sort ?? "of"}/${params.pref}/${data.end}`)
+                                } else {
+                                    history.back()
+                                }
+                            }}
+                        ></PageNationElement>
+                        <FooterElement
+                            pref={params.pref ?? ""}
+                        ></FooterElement>
+                    </>
+                }
             </div>
         </div >
     )
