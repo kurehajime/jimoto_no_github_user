@@ -1,20 +1,16 @@
 import PrefElement from './PrefElement'
 import React, { useEffect } from 'react';
-import { User } from '../models/user';
 import UserListElement from './UserListElement';
 import "./MainElement.css";
 import { useParams, useNavigate } from 'react-router-dom';
 import PageNationElement from './PageNationElement';
 import FooterElement from './FooterElement';
+import { useQuery } from '@tanstack/react-query';
 
 export default function MainElement() {
     const params = useParams();
     const navigate = useNavigate();
-    const [count, setCount] = React.useState(0)
     const [cursor, setCursor] = React.useState<string | null>(null);
-    const [, setStart] = React.useState<string | null>(null);
-    const [end, setEnd] = React.useState<string | null>(null);
-    const [users, setUsers] = React.useState<User[]>([]);
 
     useEffect(() => {
         if (params.pref && params.cursor && params.sort) {
@@ -24,10 +20,11 @@ export default function MainElement() {
         } else {
             navigate(`/of/Tokyo,東京`, { replace: true })
         }
-    }, [params.pref, params.cursor])
+    }, [params.pref, params.cursor]);
 
-    useEffect(() => {
-        const f = async () => {
+    const { isPending, data } = useQuery({
+        queryKey: [params.pref, cursor, params.sort],
+        queryFn: async () => {
             if (!params.pref) {
                 return;
             }
@@ -41,17 +38,17 @@ export default function MainElement() {
             if (params.sort && params.sort !== "" && params.sort !== "of") {
                 paramObj["sort"] = params.sort
             }
-            const res = await fetch(`https://githubusers-5dyx7gwrfq-de.a.run.app/?${new URLSearchParams(paramObj).toString()}`)
-            const json = await res.json();
-            setCount(json.data.search.userCount)
-            setStart(json.data.search.pageInfo.startCursor)
-            setEnd(json.data.search.pageInfo.endCursor)
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            setUsers(json.data.search.edges.map((e: any) => e.node))
-        };
-        f();
-    }, [params.pref, cursor, params.sort])
-
+            const result = await fetch(`https://githubusers-5dyx7gwrfq-de.a.run.app/?${new URLSearchParams(paramObj).toString()}`);
+            const j = await result.json();
+            return {
+                count: j.data.count,
+                start: j.data.search.pageInfo.startCursor,
+                end: j.data.search.pageInfo.endCursor,
+                users: j.data.search.edges.map((e: any) => e.node),
+            }
+        }
+    });
+    if (isPending || data === undefined) return <div>Loading...</div>;
     return (
         <div className='flex justify-center'>
             <div>
@@ -64,18 +61,18 @@ export default function MainElement() {
                         sortChange={(sort: string) => {
                             navigate(`/${sort ?? "of"}/${params.pref}`)
                         }}
-                        count={count}
+                        count={data.count}
                         pref={params.pref ?? ""}
                         sort={params.sort ?? "of"}
                     ></PrefElement >
                 </div >
                 <UserListElement
-                    users={users}
+                    users={data.users}
                 ></UserListElement>
                 <PageNationElement
                     cursorChange={(next: boolean) => {
                         if (next) {
-                            navigate(`/${params.sort ?? "of"}/${params.pref}/${end}`)
+                            navigate(`/${params.sort ?? "of"}/${params.pref}/${data.end}`)
                         } else {
                             history.back()
                         }
