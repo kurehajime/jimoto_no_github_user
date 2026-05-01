@@ -2,7 +2,7 @@
   "main": "index.js",
   "dependencies": {
     "@apollo/client": "^3.6.9",
-    "@google-cloud/functions-framework": "^2.1.0",
+    "@google-cloud/functions-framework": "^5.0.2",
     "node-fetch": "^2.6.7"
   }
 }
