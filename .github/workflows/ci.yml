@@ -27,7 +27,7 @@ jobs:
       - name: Run tests when present
         shell: bash
         run: |
-          if find . -path ./node_modules -prune -o \( -name '*.test.*' -o -name '*.spec.*' \) -print | grep -q .; then
+          if find . -path '*/node_modules' -prune -o -type f \( -name '*.test.*' -o -name '*.spec.*' \) -print | grep -q .; then
             npm test
           else
             echo 'テストファイルがないためスキップします'

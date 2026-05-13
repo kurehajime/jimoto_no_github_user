@@ -28,7 +28,6 @@ export default function MainElement() {
             if (!params.pref) {
                 return;
             }
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const paramObj: any = {}
             paramObj["pref"] = params.pref
 
