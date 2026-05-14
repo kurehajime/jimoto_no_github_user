@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
@@ -27,7 +27,7 @@ jobs:
       - name: Run tests when present
         shell: bash
         run: |
-          if find . -path ./node_modules -prune -o \( -name '*.test.*' -o -name '*.spec.*' \) -print | grep -q .; then
+          if find . -path '*/node_modules' -prune -o -type f \( -name '*.test.*' -o -name '*.spec.*' \) -print | grep -q .; then
             npm test
           else
             echo 'テストファイルがないためスキップします'
