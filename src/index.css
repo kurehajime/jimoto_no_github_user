@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
 
 .container {}
 
@@ -12,7 +11,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right 35% top 35%;
-    backdrop-filter: blur(0px);
 }
 
 @font-face {

@@ -24,9 +24,10 @@ export default function MainElement() {
 
     const { isPending, data } = useQuery({
         queryKey: [params.pref, cursor, params.sort],
+        enabled: Boolean(params.pref && params.sort),
         queryFn: async () => {
             if (!params.pref) {
-                return;
+                throw new Error("pref is required");
             }
             const paramObj: any = {}
             paramObj["pref"] = params.pref
@@ -50,7 +51,7 @@ export default function MainElement() {
     return (
         <div className='flex justify-center'>
             <div>
-                <div className='sticky z-50 w-full bg-white-900/80 backdrop-blur-sm'>
+                <div className='sticky z-50 w-full bg-white/80 backdrop-blur-xs'>
                     <a href="https://kurehajime.github.io/jimoto_no_github_user"><h1 className='text-2xl lg:text-5xl font-black text-center pt-5 text-black'>🗾 地元のGitHubユーザー</h1></a>
                     <PrefElement
                         prefChange={(pref: string) => {
