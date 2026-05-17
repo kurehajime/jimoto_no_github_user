@@ -4,8 +4,8 @@
   "homepage": "./",
   "dependencies": {
     "@octokit/core": "^7.0.6",
-    "@tanstack/react-query": "^5.100.9",
-    "@types/node": "^25.6.2",
+    "@tanstack/react-query": "^5.100.10",
+    "@types/node": "^25.7.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "isomorphic-fetch": "^3.0.0",
@@ -25,15 +25,15 @@
     "@eslint/js": "^10.0.1",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/postcss": "^4.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.59.2",
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.2",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.3.0",
     "postcss": "^8.5.14",
     "tailwindcss": "^4.3.0",
-    "vite": "^8.0.11",
-    "vitest": "^4.1.5"
+    "vite": "^8.0.12",
+    "vitest": "^4.1.6"
   },
   "overrides": {
     "safe-array-concat": "1.1.3",
